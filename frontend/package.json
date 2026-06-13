@@ -2,6 +2,9 @@
   "name": "splitwise-clone-frontend",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "firebase": "^12.14.0",
     "lucide-react": "^0.312.0",

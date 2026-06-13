@@ -141,15 +141,13 @@ function convertQuery(sql) {
 
 async function run(sql, params = []) {
   const converted = convertQuery(sql);
-  const hasReturning = /\bRETURNING\b/i.test(sql);
-  if (hasReturning) {
-    const result = await pool.query(converted, params);
+  const isInsert = /^\s*INSERT/i.test(sql);
+  if (isInsert) {
+    const result = await pool.query(converted + ' RETURNING id', params);
     return result.rows.length > 0 ? result.rows[0].id : 0;
-  } else {
-    await pool.query(converted, params);
-    const idResult = await pool.query('SELECT lastval() as id');
-    return idResult.rows[0].id;
   }
+  await pool.query(converted, params);
+  return 0;
 }
 
 async function get(sql, params = []) {

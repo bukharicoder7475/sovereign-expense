@@ -64,7 +64,7 @@ export default function AuthPage() {
     if (!regEmail || !regEmail.includes('@')) { setError('Enter a valid email address'); return; }
     setError(''); setLoading(true);
     try {
-      await api.post('/auth/send-otp', { target: regEmail, purpose: 'register' });
+      await api.post('/auth/send-otp', { target: regEmail, purpose: 'register' }, { timeout: 60000 });
       setLoading(false); setRegStep(2); regTimer.start();
     } catch (err) { setError(err.message); setLoading(false); }
   };

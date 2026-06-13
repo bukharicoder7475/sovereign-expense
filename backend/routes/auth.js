@@ -16,7 +16,10 @@ function getEmailTransporter() {
       host: SMTP_HOST,
       port: parseInt(SMTP_PORT) || 587,
       secure: parseInt(SMTP_PORT) === 465,
-      auth: { user: SMTP_USER, pass: SMTP_PASS }
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 15000
     });
   }
   return emailTransporter;
@@ -67,44 +70,54 @@ function generateOTP() {
 }
 
 router.post('/send-otp', async (req, res) => {
-  const { target, purpose } = req.body;
-  if (!target || !purpose) {
-    return res.status(400).json({ error: 'Target and purpose are required' });
+  try {
+    const { target, purpose } = req.body;
+    if (!target || !purpose) {
+      return res.status(400).json({ error: 'Target and purpose are required' });
+    }
+    if (!target.includes('@')) {
+      return res.status(400).json({ error: 'Email address is required' });
+    }
+
+    const code = generateOTP();
+    const expires = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+
+    await run('INSERT INTO otps (target, code, purpose, expires_at) VALUES (?, ?, ?, ?)', [target, code, purpose, expires]);
+
+    const result = await sendEmailOTP(target, code);
+
+    res.json({
+      message: result.success ? 'OTP sent successfully' : 'OTP sent (check server console)',
+      sent: result.success
+    });
+  } catch (err) {
+    console.error('[send-otp] Error:', err.message);
+    res.status(500).json({ error: 'Failed to send verification code. Please try again.' });
   }
-  if (!target.includes('@')) {
-    return res.status(400).json({ error: 'Email address is required' });
-  }
-
-  const code = generateOTP();
-  const expires = new Date(Date.now() + 10 * 60 * 1000).toISOString();
-
-  await run('INSERT INTO otps (target, code, purpose, expires_at) VALUES (?, ?, ?, ?)', [target, code, purpose, expires]);
-
-  const result = await sendEmailOTP(target, code);
-
-  res.json({
-    message: result.success ? 'OTP sent successfully' : 'OTP sent (check server console)',
-    sent: result.success
-  });
 });
 
 router.post('/verify-otp', async (req, res) => {
-  const { target, code, purpose } = req.body;
-  if (!target || !code || !purpose) {
-    return res.status(400).json({ error: 'Target, code, and purpose are required' });
+  try {
+    const { target, code, purpose } = req.body;
+    if (!target || !code || !purpose) {
+      return res.status(400).json({ error: 'Target, code, and purpose are required' });
+    }
+
+    const otp = await get(
+      'SELECT * FROM otps WHERE target = ? AND code = ? AND purpose = ? AND used = 0 AND expires_at > ? ORDER BY id DESC LIMIT 1',
+      [target, code, purpose, new Date().toISOString()]
+    );
+
+    if (!otp) {
+      return res.status(400).json({ error: 'Invalid or expired OTP' });
+    }
+
+    await run('UPDATE otps SET used = 1 WHERE id = ?', [otp.id]);
+    res.json({ message: 'OTP verified successfully' });
+  } catch (err) {
+    console.error('[verify-otp] Error:', err.message);
+    res.status(500).json({ error: 'Verification failed. Please try again.' });
   }
-
-  const otp = await get(
-    'SELECT * FROM otps WHERE target = ? AND code = ? AND purpose = ? AND used = 0 AND expires_at > ? ORDER BY id DESC LIMIT 1',
-    [target, code, purpose, new Date().toISOString()]
-  );
-
-  if (!otp) {
-    return res.status(400).json({ error: 'Invalid or expired OTP' });
-  }
-
-  await run('UPDATE otps SET used = 1 WHERE id = ?', [otp.id]);
-  res.json({ message: 'OTP verified successfully' });
 });
 
 router.post('/register', async (req, res) => {
@@ -197,21 +210,26 @@ router.post('/check-account', async (req, res) => {
 });
 
 router.post('/forgot-password', async (req, res) => {
-  const { target, method } = req.body;
-  if (!target) {
-    return res.status(400).json({ error: 'Email is required' });
+  try {
+    const { target, method } = req.body;
+    if (!target) {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+
+    const code = generateOTP();
+    const expires = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+    await run('INSERT INTO otps (target, code, purpose, expires_at) VALUES (?, ?, ?, ?)', [target, code, 'reset_password', expires]);
+
+    const sendResult = await sendEmailOTP(target, code);
+
+    res.json({
+      message: sendResult.success ? 'OTP sent to your email' : 'OTP sent (check server console)',
+      sent: sendResult.success
+    });
+  } catch (err) {
+    console.error('[forgot-password] Error:', err.message);
+    res.status(500).json({ error: 'Failed to send verification code. Please try again.' });
   }
-
-  const code = generateOTP();
-  const expires = new Date(Date.now() + 10 * 60 * 1000).toISOString();
-  await run('INSERT INTO otps (target, code, purpose, expires_at) VALUES (?, ?, ?, ?)', [target, code, 'reset_password', expires]);
-
-  const sendResult = await sendEmailOTP(target, code);
-
-  res.json({
-    message: sendResult.success ? 'OTP sent to your email' : 'OTP sent (check server console)',
-    sent: sendResult.success
-  });
 });
 
 router.post('/reset-password', async (req, res) => {

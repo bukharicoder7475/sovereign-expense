@@ -23,7 +23,7 @@ router.post('/', authenticate, async (req, res) => {
     return res.status(400).json({ error: 'Group name is required' });
   }
 
-  const groupId = await run('INSERT INTO groups (name, description, creator_id) VALUES (?, ?, ?) RETURNING id', [name, description || '', req.user.id]);
+  const groupId = await run('INSERT INTO groups (name, description, creator_id) VALUES (?, ?, ?)', [name, description || '', req.user.id]);
 
   await run('INSERT INTO group_members (group_id, user_id, role) VALUES (?, ?, ?)', [groupId, req.user.id, 'admin']);
 

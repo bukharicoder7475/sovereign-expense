@@ -88,7 +88,8 @@ router.post('/send-otp', async (req, res) => {
 
     res.json({
       message: result.success ? 'OTP sent successfully' : 'OTP sent (check server console)',
-      sent: result.success
+      sent: result.success,
+      ...(result.method === 'console' ? { code } : {})
     });
   } catch (err) {
     console.error('[send-otp] Error:', err.message);
@@ -224,7 +225,8 @@ router.post('/forgot-password', async (req, res) => {
 
     res.json({
       message: sendResult.success ? 'OTP sent to your email' : 'OTP sent (check server console)',
-      sent: sendResult.success
+      sent: sendResult.success,
+      ...(sendResult.method === 'console' ? { code } : {})
     });
   } catch (err) {
     console.error('[forgot-password] Error:', err.message);

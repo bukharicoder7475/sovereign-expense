@@ -40,11 +40,13 @@ export default function AuthPage() {
   const [regPurpose, setRegPurpose] = useState('');
   const [regCountryCode, setRegCountryCode] = useState('+966');
   const [regPhone, setRegPhone] = useState('');
+  const [devOTP, setDevOTP] = useState('');
 
   const [fpEmail, setFpEmail] = useState('');
   const [fpOTP, setFpOTP] = useState('');
   const [fpNewPassword, setFpNewPassword] = useState('');
   const [fpStep, setFpStep] = useState(1);
+  const [fpDevOTP, setFpDevOTP] = useState('');
 
   const regTimer = useOtpTimer(60);
   const fpTimer = useOtpTimer(60);
@@ -62,10 +64,12 @@ export default function AuthPage() {
 
   const handleSendRegOTP = async () => {
     if (!regEmail || !regEmail.includes('@')) { setError('Enter a valid email address'); return; }
-    setError(''); setLoading(true);
+    setError(''); setLoading(true); setDevOTP('');
     try {
-      await api.post('/auth/send-otp', { target: regEmail, purpose: 'register' }, { timeout: 60000 });
-      setLoading(false); setRegStep(2); regTimer.start();
+      const res = await api.post('/auth/send-otp', { target: regEmail, purpose: 'register' }, { timeout: 60000 });
+      setLoading(false);
+      if (res.code) setDevOTP(res.code);
+      setRegStep(2); regTimer.start();
     } catch (err) { setError(err.message); setLoading(false); }
   };
 
@@ -93,10 +97,12 @@ export default function AuthPage() {
 
   const handleForgotPasswordSendOTP = async () => {
     if (!fpEmail || !fpEmail.includes('@')) { setError('Enter your registered email address'); return; }
-    setError(''); setLoading(true);
+    setError(''); setLoading(true); setFpDevOTP('');
     try {
-      await api.post('/auth/forgot-password', { target: fpEmail, method: 'email' });
-      setLoading(false); setFpStep(2); fpTimer.start();
+      const res = await api.post('/auth/forgot-password', { target: fpEmail, method: 'email' }, { timeout: 60000 });
+      setLoading(false);
+      if (res.code) setFpDevOTP(res.code);
+      setFpStep(2); fpTimer.start();
     } catch (err) { setError(err.message); setLoading(false); }
   };
 
@@ -121,7 +127,7 @@ export default function AuthPage() {
   };
 
   const resetRegistration = () => {
-    setRegStep(1); setRegEmail(''); setRegOTP(''); setRegPhone('');
+    setRegStep(1); setRegEmail(''); setRegOTP(''); setRegPhone(''); setDevOTP('');
     regTimer.reset(); setError('');
   };
 
@@ -235,6 +241,12 @@ export default function AuthPage() {
               <h3>Verify your email</h3>
               <p>We sent a 6-digit code to<br/><strong style={{ color: '#C0C0C0' }}>{regEmail}</strong></p>
             </div>
+            {devOTP && (
+              <div style={{ marginBottom: 16, padding: '16px', background: 'rgba(192,192,192,0.08)', borderRadius: 14, border: '1px solid rgba(192,192,192,0.2)', textAlign: 'center' }}>
+                <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Your verification code</p>
+                <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: 10, color: '#C0C0C0', fontFamily: 'monospace' }}>{devOTP}</div>
+              </div>
+            )}
             <ErrorBanner />
             <form onSubmit={(e) => { e.preventDefault(); handleVerifyRegOTP(); }} style={{ textAlign: 'left' }}>
               <div className="input-group">
@@ -246,7 +258,7 @@ export default function AuthPage() {
             </form>
             <ResendButton onResend={handleSendRegOTP} timer={regTimer} />
             <div style={{ textAlign: 'center', marginTop: 12 }}>
-              <a onClick={() => { setRegStep(1); setError(''); setRegOTP(''); regTimer.reset(); }} className="auth-back-link">Change email</a>
+              <a onClick={() => { setRegStep(1); setError(''); setRegOTP(''); setDevOTP(''); regTimer.reset(); }} className="auth-back-link">Change email</a>
             </div>
           </>
         )}
@@ -311,6 +323,12 @@ export default function AuthPage() {
         {view === 'forgot_password' && fpStep === 2 && (
           <>
             <div className="auth-welcome"><h3>Enter verification code</h3><p>Code sent to <strong style={{ color: '#C0C0C0' }}>{fpEmail}</strong></p></div>
+            {fpDevOTP && (
+              <div style={{ marginBottom: 16, padding: '16px', background: 'rgba(192,192,192,0.08)', borderRadius: 14, border: '1px solid rgba(192,192,192,0.2)', textAlign: 'center' }}>
+                <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Your verification code</p>
+                <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: 10, color: '#C0C0C0', fontFamily: 'monospace' }}>{fpDevOTP}</div>
+              </div>
+            )}
             <ErrorBanner />
             <form onSubmit={(e) => { e.preventDefault(); handleVerifyFPOtp(); }} style={{ textAlign: 'left' }}>
               <div className="input-group">

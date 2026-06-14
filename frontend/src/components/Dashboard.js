@@ -120,24 +120,15 @@ export default function Dashboard() {
       )}
 
       <div className="dashboard-header">
-        <div className="dashboard-header-top">
-          <Link to="/" className="brand-section" style={{ textDecoration: 'none' }}>
-            <div className="logo-icon-small">
-              <img src="/logo.svg" alt="" />
-            </div>
-            <span className="brand-name" style={{ fontSize: 22, fontWeight: 800, letterSpacing: 1 }}>Ledgerly</span>
-          </Link>
-
-        </div>
         <div className="dashboard-greeting">
           <h2>{getGreeting()}, <span className="dashboard-user-name">{user?.name}</span></h2>
           <p>Here's your financial overview</p>
         </div>
-        <div style={{ display: 'flex', gap: 8, position: 'absolute', top: 16, right: 16 }}>
+        <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
           {unreadCount > 0 && (
             <Link to="/notifications" className="notification-badge" style={{
               display: 'flex', alignItems: 'center', gap: 6, padding: '6px 10px',
-              background: 'rgba(27, 37, 89, 0.15)', border: '1px solid var(--border)',
+              background: 'var(--accent-dim)', border: '1px solid var(--border)',
               borderRadius: 8, fontSize: 11, color: 'var(--text-primary)', textDecoration: 'none'
             }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -233,8 +224,8 @@ export default function Dashboard() {
         <div className="security-pulse"></div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 20 }}>
-        <div>
+      <div className="dashboard-content-grid">
+        <div className="dashboard-main-col">
           <div className="card">
             <div className="card-header">
               <h3>Recent Activity</h3>
@@ -277,7 +268,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div>
+        <div className="dashboard-side-col">
           <div className="card">
             <div className="card-header">
               <h3>Balances</h3>

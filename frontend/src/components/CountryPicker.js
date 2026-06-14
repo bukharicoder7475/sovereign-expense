@@ -26,8 +26,8 @@ export default function CountryPicker({ value, onChange }) {
   return (
     <>
       <div onClick={() => setOpen(true)} style={{
-        width: 130, flexShrink: 0, padding: '13px 10px', background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, color: '#fff', fontSize: 14,
+        width: 130, flexShrink: 0, padding: '13px 10px', background: 'var(--bg-input)',
+        border: '1px solid var(--border)', borderRadius: 14, color: 'var(--text-primary)', fontSize: 14,
         cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         transition: 'all 0.3s', userSelect: 'none', WebkitTapHighlightColor: 'transparent',
         boxSizing: 'border-box', minHeight: 48
@@ -58,7 +58,7 @@ export default function CountryPicker({ value, onChange }) {
             <div style={{ padding: '16px 16px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)' }}>Select Country</span>
               <div onClick={() => setOpen(false)} style={{
-                width: 32, height: 32, borderRadius: '50%', background: 'rgba(255,255,255,0.06)',
+                width: 32, height: 32, borderRadius: '50%', background: 'var(--surface-2)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer'
               }}>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -74,8 +74,8 @@ export default function CountryPicker({ value, onChange }) {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search country or code..."
                 style={{
-                  width: '100%', padding: '12px 14px', background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, color: '#fff',
+                   width: '100%', padding: '12px 14px', background: 'var(--bg-input)',
+                   border: '1px solid var(--border)', borderRadius: 12, color: 'var(--text-primary)',
                   fontSize: 14, fontFamily: 'inherit', outline: 'none', boxSizing: 'border-box'
                 }}
               />
@@ -92,7 +92,7 @@ export default function CountryPicker({ value, onChange }) {
                     border: c.code === value ? '1px solid rgba(27,37,89,0.3)' : '1px solid transparent',
                     WebkitTapHighlightColor: 'transparent'
                   }}
-                  onMouseEnter={(e) => { if (c.code !== value) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+                   onMouseEnter={(e) => { if (c.code !== value) e.currentTarget.style.background = 'var(--bg-input)'; }}
                   onMouseLeave={(e) => { if (c.code !== value) e.currentTarget.style.background = 'transparent'; }}
                 >
                   <span style={{ fontSize: 20, width: 28, textAlign: 'center' }}>{c.flag}</span>
@@ -100,7 +100,7 @@ export default function CountryPicker({ value, onChange }) {
                     <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--text-primary)' }}>{c.name}</div>
                     <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 1 }}>{c.currency} ({c.symbol})</div>
                   </div>
-                  <span style={{ fontSize: 14, fontWeight: 600, color: 'rgba(255,255,255,0.4)', fontVariantNumeric: 'tabular-nums' }}>{c.code}</span>
+                   <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-muted)', fontVariantNumeric: 'tabular-nums' }}>{c.code}</span>
                 </div>
               ))}
               {filtered.length === 0 && (

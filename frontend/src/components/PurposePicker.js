@@ -27,8 +27,8 @@ export default function PurposePicker({ value, onChange }) {
   return (
     <>
       <div onClick={() => setOpen(true)} style={{
-        width: '100%', padding: '13px 14px', background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, color: '#fff', fontSize: 14,
+        width: '100%', padding: '13px 14px', background: 'var(--bg-input)',
+        border: '1px solid var(--border)', borderRadius: 14, color: 'var(--text-primary)', fontSize: 14,
         cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         transition: 'all 0.3s', userSelect: 'none', WebkitTapHighlightColor: 'transparent',
         boxSizing: 'border-box', minHeight: 48, fontFamily: 'inherit'
@@ -57,7 +57,7 @@ export default function PurposePicker({ value, onChange }) {
             <div style={{ padding: '16px 16px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)' }}>Select Purpose</span>
               <div onClick={() => setOpen(false)} style={{
-                width: 32, height: 32, borderRadius: '50%', background: 'rgba(255,255,255,0.06)',
+                width: 32, height: 32, borderRadius: '50%', background: 'var(--surface-2)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer'
               }}>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -77,7 +77,7 @@ export default function PurposePicker({ value, onChange }) {
                     border: p === value ? '1px solid rgba(27,37,89,0.3)' : '1px solid transparent',
                     WebkitTapHighlightColor: 'transparent', marginBottom: 2
                   }}
-                  onMouseEnter={(e) => { if (p !== value) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+                   onMouseEnter={(e) => { if (p !== value) e.currentTarget.style.background = 'var(--bg-input)'; }}
                   onMouseLeave={(e) => { if (p !== value) e.currentTarget.style.background = 'transparent'; }}
                 >
                   <div style={{

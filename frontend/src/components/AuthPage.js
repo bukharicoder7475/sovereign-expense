@@ -159,13 +159,13 @@ export default function AuthPage() {
   const StepIndicator = ({ current, total }) => (
     <div style={{ display: 'flex', gap: 6, justifyContent: 'center', marginBottom: 24 }}>
       {Array.from({ length: total }, (_, i) => (
-        <div key={i} style={{ height: 3, borderRadius: 2, flex: 1, background: i < current ? 'linear-gradient(90deg, #1B2559, #2E3A6E)' : 'rgba(255,255,255,0.06)', transition: 'all 0.4s' }} />
+        <div key={i} style={{ height: 3, borderRadius: 2, flex: 1, background: i < current ? 'linear-gradient(90deg, #1B2559, #2E3A6E)' : 'var(--border)', transition: 'all 0.4s' }} />
       ))}
     </div>
   );
 
   const focusStyle = { borderColor: 'var(--accent-light)', background: 'var(--bg-input-focus)' };
-  const blurStyle = { borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' };
+  const blurStyle = { borderColor: 'var(--border)', background: 'var(--bg-input)' };
   const handleFocus = (e) => { Object.assign(e.target.style, focusStyle); };
   const handleBlur = (e) => { Object.assign(e.target.style, blurStyle); };
 
@@ -218,7 +218,7 @@ export default function AuthPage() {
               <div className="input-group">
                 <label style={labelStyle}>Email Address</label>
                 <input type="email" value={regEmail} onChange={(e) => setRegEmail(e.target.value)} placeholder="you@example.com" required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.25)', marginTop: 6 }}>We'll send a verification code to this email</div>
+                <div style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 6 }}>We'll send a verification code to this email</div>
               </div>
               <button className="auth-btn-primary" disabled={loading}>
                 {loading ? <span className="auth-btn-loader"></span> : 'Send Verification Code'}

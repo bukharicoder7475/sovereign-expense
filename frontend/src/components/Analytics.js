@@ -65,7 +65,7 @@ export default function Analytics() {
             <div className="card">
               <h3 style={{ marginBottom: 16, fontSize: 15 }}>Monthly Trend</h3>
               {monthlyData.length > 0 ? (
-                <div className="chart-container"><ResponsiveContainer width="100%" height={300}><LineChart data={monthlyData}><CartesianGrid strokeDasharray="3 3" stroke="var(--border)" /><XAxis dataKey="month" stroke="var(--text-muted)" /><YAxis stroke="var(--text-muted)" /><Tooltip contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} /><Line type="monotone" dataKey="amount" stroke="#C0C0C0" strokeWidth={2} dot={{ fill: '#C0C0C0' }} /></LineChart></ResponsiveContainer></div>
+                <div className="chart-container"><ResponsiveContainer width="100%" height={300}><LineChart data={monthlyData}><CartesianGrid strokeDasharray="3 3" stroke="var(--border)" /><XAxis dataKey="month" stroke="var(--text-muted)" /><YAxis stroke="var(--text-muted)" /><Tooltip contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} /><Line type="monotone" dataKey="amount" stroke="#2E3A6E" strokeWidth={2} dot={{ fill: '#1B2559' }} /></LineChart></ResponsiveContainer></div>
               ) : <div className="empty-state" style={{ padding: 20 }}><p>No data available</p></div>}
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function Analytics() {
             <div className="card">
               <h3 style={{ marginBottom: 16, fontSize: 15 }}>Spending by Category (90 days)</h3>
               {Object.keys(analysis.category_breakdown || {}).length > 0 ? (
-                <div className="chart-container"><ResponsiveContainer width="100%" height={300}><BarChart data={Object.entries(analysis.category_breakdown).map(([name, value]) => ({ name, amount: Math.round(value * 100) / 100 }))}><CartesianGrid strokeDasharray="3 3" stroke="var(--border)" /><XAxis dataKey="name" stroke="var(--text-muted)" /><YAxis stroke="var(--text-muted)" /><Tooltip contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} formatter={(v) => formatCurrency(v, curr.symbol)} /><Bar dataKey="amount" fill="#C0C0C0" radius={[6, 6, 0, 0]} /></BarChart></ResponsiveContainer></div>
+                <div className="chart-container"><ResponsiveContainer width="100%" height={300}><BarChart data={Object.entries(analysis.category_breakdown).map(([name, value]) => ({ name, amount: Math.round(value * 100) / 100 }))}><CartesianGrid strokeDasharray="3 3" stroke="var(--border)" /><XAxis dataKey="name" stroke="var(--text-muted)" /><YAxis stroke="var(--text-muted)" /><Tooltip contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} formatter={(v) => formatCurrency(v, curr.symbol)} /><Bar dataKey="amount" fill="#1B2559" radius={[6, 6, 0, 0]} /></BarChart></ResponsiveContainer></div>
               ) : <div className="empty-state" style={{ padding: 20 }}><p>No data available</p></div>}
             </div>
           </div>

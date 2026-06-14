@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/send-report', authenticate, async (req, res) => {
   try {
-    const user = await get('SELECT * FROM users WHERE id = ?', [req.user.id]);
+    const user = await get('SELECT * FROM users WHERE id = $1', [req.user.id]);
     if (!user || !user.email) {
       return res.status(400).json({ error: 'No email on file' });
     }
@@ -86,7 +86,7 @@ router.post('/send-expense-summary', authenticate, async (req, res) => {
       from: `"Ledgerly" <${process.env.SMTP_USER}>`,
       to: recipientEmail,
       subject: `${report.monthName} ${report.year} Expense Report - Ledgerly`,
-      html: `<div style="font-family:sans-serif;padding:40px;background:#000;color:#e8e8e8;"><h1 style="color:#c0c0c0;letter-spacing:4px;">LEDGERLY</h1><p>Your monthly expense report is attached.</p></div>`,
+      html: `<div style="font-family:sans-serif;padding:40px;background:#000;color:#e8e8e8;"><h1 style="color:#1B2559;letter-spacing:4px;">LEDGERLY</h1><p>Your monthly expense report is attached.</p></div>`,
       attachments: [{
         filename: `Ledgerly_${report.monthName}_${report.year}_Report.pdf`,
         content: pdfBuffer,

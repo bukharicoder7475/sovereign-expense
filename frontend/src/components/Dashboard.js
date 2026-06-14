@@ -93,11 +93,11 @@ export default function Dashboard() {
     <div>
       {!user && localStorage.getItem('guest') === '1' && (
         <div className="guest-banner" style={{
-          padding: '12px 16px', marginBottom: 16, background: 'linear-gradient(135deg, rgba(192,192,192,0.08) 0%, rgba(212,175,55,0.05) 100%)',
+          padding: '12px 16px', marginBottom: 16, background: 'linear-gradient(135deg, rgba(27,37,89,0.06) 0%, rgba(27,37,89,0.05) 100%)',
           border: '1px solid var(--border)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap'
         }}>
-          <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>You're browsing as a <strong style={{ color: 'var(--silver)' }}>guest</strong>. Sign up to save your data.</div>
-          <a href="/login" className="btn btn-primary btn-sm" style={{ fontSize: 12, padding: '6px 14px', borderRadius: 8, whiteSpace: 'nowrap' }}>Sign Up Free</a>
+          <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>You're browsing as a <strong style={{ color: 'var(--text-primary)' }}>guest</strong>. Sign up to save your data.</div>
+          <Link to="/login" className="btn btn-primary btn-sm" style={{ fontSize: 12, padding: '6px 14px', borderRadius: 8, whiteSpace: 'nowrap' }}>Sign Up Free</Link>
         </div>
       )}
       {showWelcome && (
@@ -121,7 +121,12 @@ export default function Dashboard() {
 
       <div className="dashboard-header">
         <div className="dashboard-header-top">
-          <img src="/logo.svg" alt="Ledgerly" className="dashboard-logo" />
+          <Link to="/" className="brand-section" style={{ textDecoration: 'none' }}>
+            <div className="logo-icon-small">
+              <img src="/logo.svg" alt="" />
+            </div>
+            <span className="brand-name" style={{ fontSize: 22, fontWeight: 800, letterSpacing: 1 }}>Ledgerly</span>
+          </Link>
 
         </div>
         <div className="dashboard-greeting">
@@ -132,8 +137,8 @@ export default function Dashboard() {
           {unreadCount > 0 && (
             <Link to="/notifications" className="notification-badge" style={{
               display: 'flex', alignItems: 'center', gap: 6, padding: '6px 10px',
-              background: 'rgba(192, 192, 192, 0.06)', border: '1px solid var(--border)',
-              borderRadius: 8, fontSize: 11, color: 'var(--silver)', textDecoration: 'none'
+              background: 'rgba(27, 37, 89, 0.15)', border: '1px solid var(--border)',
+              borderRadius: 8, fontSize: 11, color: 'var(--text-primary)', textDecoration: 'none'
             }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
               {unreadCount}
@@ -217,12 +222,12 @@ export default function Dashboard() {
         </Link>
       </div>
 
-      <div className="card" style={{ marginBottom: 20, padding: 18, display: 'flex', alignItems: 'center', gap: 14, background: 'linear-gradient(135deg, rgba(192,192,192,0.04) 0%, rgba(192,192,192,0.02) 100%)', flexWrap: 'wrap' }}>
+      <div className="card" style={{ marginBottom: 20, padding: 18, display: 'flex', alignItems: 'center', gap: 14, background: 'var(--card-bg)', flexWrap: 'wrap' }}>
         <div style={{ width: 36, height: 36, borderRadius: 8, background: 'rgba(46, 204, 113, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--silver-light)', marginBottom: 2 }}>Your data is encrypted and secure</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 2 }}>Your data is encrypted and secure</div>
           <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>256-bit SSL encryption · SOC 2 compliant · GDPR ready</div>
         </div>
         <div className="security-pulse"></div>
@@ -246,7 +251,7 @@ export default function Dashboard() {
               ) : (
                 recentExpenses.slice(0, 6).map((expense, i) => (
                   <div className="expense-item" key={expense.id} style={{ animationDelay: `${i * 50}ms` }}>
-                    <div className="expense-icon" style={{ background: 'rgba(192, 192, 192, 0.06)' }}>
+                    <div className="expense-icon">
                       {expense.category || 'General'}
                     </div>
                     <div className="expense-details">
@@ -324,7 +329,7 @@ export default function Dashboard() {
 
           <div className="card" style={{ padding: 18 }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-              <div style={{ width: 28, height: 28, borderRadius: 6, background: 'rgba(192,192,192,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 14 }}>💡</div>
+              <div style={{ width: 28, height: 28, borderRadius: 6, background: 'var(--surface-2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 14 }}>💡</div>
               <div>
                 <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>Tip of the Day</div>
                 <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{tip}</div>

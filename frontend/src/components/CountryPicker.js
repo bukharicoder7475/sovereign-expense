@@ -56,7 +56,7 @@ export default function CountryPicker({ value, onChange }) {
             animation: 'slideUp 0.25s ease'
           }}>
             <div style={{ padding: '16px 16px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: 16, fontWeight: 600, color: '#E0E0E0' }}>Select Country</span>
+              <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)' }}>Select Country</span>
               <div onClick={() => setOpen(false)} style={{
                 width: 32, height: 32, borderRadius: '50%', background: 'rgba(255,255,255,0.06)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer'
@@ -88,8 +88,8 @@ export default function CountryPicker({ value, onChange }) {
                   style={{
                     display: 'flex', alignItems: 'center', gap: 12, padding: '13px 14px',
                     borderRadius: 12, cursor: 'pointer', transition: 'background 0.15s',
-                    background: c.code === value ? 'rgba(192,192,192,0.1)' : 'transparent',
-                    border: c.code === value ? '1px solid rgba(192,192,192,0.15)' : '1px solid transparent',
+                    background: c.code === value ? 'var(--accent-dim)' : 'transparent',
+                    border: c.code === value ? '1px solid rgba(27,37,89,0.3)' : '1px solid transparent',
                     WebkitTapHighlightColor: 'transparent'
                   }}
                   onMouseEnter={(e) => { if (c.code !== value) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
@@ -97,7 +97,7 @@ export default function CountryPicker({ value, onChange }) {
                 >
                   <span style={{ fontSize: 20, width: 28, textAlign: 'center' }}>{c.flag}</span>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 14, fontWeight: 500, color: '#E0E0E0' }}>{c.name}</div>
+                    <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--text-primary)' }}>{c.name}</div>
                     <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', marginTop: 1 }}>{c.currency} ({c.symbol})</div>
                   </div>
                   <span style={{ fontSize: 14, fontWeight: 600, color: 'rgba(255,255,255,0.4)', fontVariantNumeric: 'tabular-nums' }}>{c.code}</span>

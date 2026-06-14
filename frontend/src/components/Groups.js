@@ -176,7 +176,7 @@ export default function Groups() {
                         className="search-result-item"
                       >
                         <div style={{
-                          width: 32, height: 32, borderRadius: 8, background: 'var(--gradient-silver)',
+                          width: 32, height: 32, borderRadius: 8,                            background: 'var(--gradient-navy)',
                           display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, color: '#000'
                         }}>{user.name.charAt(0).toUpperCase()}</div>
                         <div>

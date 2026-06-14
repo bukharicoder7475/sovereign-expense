@@ -15,10 +15,10 @@ router.get('/monthly-report', authenticate, async (req, res) => {
       FROM expenses e
       JOIN users u ON e.paid_by = u.id
       LEFT JOIN groups g ON e.group_id = g.id
-      WHERE (e.paid_by = ? OR e.id IN (SELECT expense_id FROM expense_splits WHERE user_id = ?))
-      AND TO_CHAR(e.date, 'YYYY-MM') = ?
+      WHERE (e.paid_by = $1 OR e.id IN (SELECT expense_id FROM expense_splits WHERE user_id = $1))
+      AND TO_CHAR(e.date, 'YYYY-MM') = $2
       ORDER BY e.date DESC
-    `, [req.user.id, req.user.id, `${year}-${monthStr}`]);
+    `, [req.user.id, `${year}-${monthStr}`]);
 
     const totalSpent = expenses.reduce((sum, e) => sum + e.amount, 0);
 
@@ -35,8 +35,8 @@ router.get('/monthly-report', authenticate, async (req, res) => {
       SELECT es.amount
       FROM expense_splits es
       JOIN expenses e ON es.expense_id = e.id
-      WHERE es.user_id = ?
-      AND TO_CHAR(e.date, 'YYYY-MM') = ?
+      WHERE es.user_id = $1
+      AND TO_CHAR(e.date, 'YYYY-MM') = $2
     `, [req.user.id, `${year}-${monthStr}`]);
 
     const totalMyShare = mySplits.reduce((sum, s) => sum + s.amount, 0);
@@ -71,10 +71,10 @@ router.get('/ai-analysis', authenticate, async (req, res) => {
       FROM expenses e
       JOIN users u ON e.paid_by = u.id
       LEFT JOIN groups g ON e.group_id = g.id
-      WHERE (e.paid_by = ? OR e.id IN (SELECT expense_id FROM expense_splits WHERE user_id = ?))
+      WHERE (e.paid_by = $1 OR e.id IN (SELECT expense_id FROM expense_splits WHERE user_id = $1))
       AND e.date >= CURRENT_DATE - INTERVAL '90 days'
       ORDER BY e.date DESC
-    `, [req.user.id, req.user.id]);
+    `, [req.user.id]);
 
     const totalSpent = expenses.reduce((sum, e) => sum + e.amount, 0);
     const avgPerExpense = expenses.length > 0 ? totalSpent / expenses.length : 0;

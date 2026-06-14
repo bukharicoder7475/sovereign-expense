@@ -63,7 +63,7 @@ export default function Chat() {
           <div className="card" style={{ height: '100%', overflow: 'auto', padding: 16 }}>
             <h3 style={{ marginBottom: 14, fontSize: 14 }}>Groups</h3>
             {groups.length === 0 ? <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>No groups yet</p> : groups.map(group => (
-              <div key={group.id} onClick={() => selectGroup(group.id)} style={{ padding: 12, borderRadius: 10, cursor: 'pointer', marginBottom: 6, background: selectedGroup === group.id ? 'rgba(192, 192, 192, 0.12)' : 'transparent', transition: 'all 0.2s', border: selectedGroup === group.id ? '1px solid rgba(192, 192, 192, 0.15)' : '1px solid transparent' }} onMouseOver={(e) => { if (selectedGroup !== group.id) e.currentTarget.style.background = 'var(--bg-input)'; }} onMouseOut={(e) => { if (selectedGroup !== group.id) e.currentTarget.style.background = 'transparent'; }}>
+              <div key={group.id} onClick={() => selectGroup(group.id)} style={{ padding: 12, borderRadius: 10, cursor: 'pointer', marginBottom: 6, background: selectedGroup === group.id ? 'var(--accent-dim)' : 'transparent', transition: 'all 0.2s', border: selectedGroup === group.id ? '1px solid rgba(27,37,89,0.3)' : '1px solid transparent' }} onMouseOver={(e) => { if (selectedGroup !== group.id) e.currentTarget.style.background = 'var(--bg-input)'; }} onMouseOut={(e) => { if (selectedGroup !== group.id) e.currentTarget.style.background = 'transparent'; }}>
                 <div style={{ fontWeight: 600, fontSize: 13 }}>{group.name}</div>
                 <div style={{ fontSize: 11, opacity: 0.6 }}>{group.member_count} members</div>
               </div>
@@ -80,7 +80,7 @@ export default function Chat() {
                 <div className="chat-messages">
                   {messages.length === 0 ? <div style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 40, fontSize: 14 }}>No messages yet. Start the conversation!</div> : messages.map((msg, i) => (
                     <div className={`chat-message ${msg.user_id === user.id ? 'sent' : 'received'}`} key={msg.id || i}>
-                      <div className="avatar" style={{ background: msg.user_id === user.id ? 'var(--gradient-silver)' : 'var(--bg-input)', color: msg.user_id === user.id ? '#000' : 'var(--text-primary)' }}>{msg.name?.charAt(0).toUpperCase()}</div>
+                      <div className="avatar" style={{ background: msg.user_id === user.id ? 'var(--gradient-navy)' : 'var(--bg-input)', color: msg.user_id === user.id ? '#fff' : 'var(--text-primary)' }}>{msg.name?.charAt(0).toUpperCase()}</div>
                       <div className="bubble">
                         <div className="sender">{msg.name}</div>
                         <div className="text">{msg.content}</div>

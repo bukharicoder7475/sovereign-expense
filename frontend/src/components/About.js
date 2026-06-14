@@ -13,14 +13,14 @@ export default function About() {
       </div>
 
       <div className="card" style={{ marginBottom: 24 }}>
-        <h3 style={{ color: 'var(--silver-light)', marginBottom: 16, fontSize: 18 }}>Our Mission</h3>
+        <h3 style={{ color: 'var(--text-primary)', marginBottom: 16, fontSize: 18 }}>Our Mission</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
           Ledgerly was built with a singular vision: to give people complete clarity and control over their shared finances. We believe managing money with others should be effortless, transparent, and even enjoyable. No more awkward conversations about who owes what. No more losing track of group expenses. Ledgerly handles it all with precision and elegance.
         </p>
       </div>
 
       <div className="card" style={{ marginBottom: 24 }}>
-        <h3 style={{ color: 'var(--silver-light)', marginBottom: 16, fontSize: 18 }}>What We Offer</h3>
+        <h3 style={{ color: 'var(--text-primary)', marginBottom: 16, fontSize: 18 }}>What We Offer</h3>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           {[
             { title: 'Smart Splitting', desc: 'Split expenses equally, by percentage, or exact amounts. Our algorithm minimizes the number of settlements needed.' },
@@ -31,7 +31,7 @@ export default function About() {
             { title: 'Email Reports', desc: 'Receive beautifully formatted expense summaries and payment reminders directly in your email.' },
           ].map((item, i) => (
             <div key={i} style={{ padding: 16, background: 'var(--bg-input)', borderRadius: 8, border: '1px solid var(--border)' }}>
-              <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--silver-light)', marginBottom: 8 }}>{item.title}</div>
+              <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text-primary)', marginBottom: 8 }}>{item.title}</div>
               <div style={{ fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.6 }}>{item.desc}</div>
             </div>
           ))}
@@ -39,7 +39,7 @@ export default function About() {
       </div>
 
       <div className="card" style={{ marginBottom: 24 }}>
-        <h3 style={{ color: 'var(--silver-light)', marginBottom: 16, fontSize: 18 }}>Our Story</h3>
+        <h3 style={{ color: 'var(--text-primary)', marginBottom: 16, fontSize: 18 }}>Our Story</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14, marginBottom: 16 }}>
           Ledgerly was born from a simple frustration: splitting bills with friends and colleagues was always more complicated than it needed to be. We watched people struggle with spreadsheets, forgotten debts, and uncomfortable reminders. We knew there had to be a better way.
         </p>
@@ -52,7 +52,7 @@ export default function About() {
       </div>
 
       <div className="card" style={{ textAlign: 'center', padding: '40px 24px' }}>
-        <h3 style={{ color: 'var(--silver-light)', marginBottom: 12, fontSize: 18 }}>Ready to Take Control?</h3>
+        <h3 style={{ color: 'var(--text-primary)', marginBottom: 12, fontSize: 18 }}>Ready to Take Control?</h3>
         <p style={{ color: 'var(--text-muted)', marginBottom: 24, fontSize: 14 }}>Join Ledgerly and experience expense management the way it should be.</p>
         <Link to="/" className="btn btn-primary" style={{ padding: '12px 32px' }}>Get Started</Link>
       </div>

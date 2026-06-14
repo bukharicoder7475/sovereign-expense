@@ -101,7 +101,7 @@ export default function GroupDetail() {
             <div className="expense-list">
               {expenses.map(expense => (
                 <div className="expense-item" key={expense.id}>
-                  <div className="expense-icon" style={{ background: 'rgba(192, 192, 192, 0.06)' }}>{expense.category || 'General'}</div>
+                   <div className="expense-icon">{expense.category || 'General'}</div>
                   <div className="expense-details">
                     <div className="description">{expense.description}</div>
                     <div className="meta">Paid by {expense.paid_by_name} · {new Date(expense.date).toLocaleDateString()}</div>
@@ -136,12 +136,12 @@ export default function GroupDetail() {
         <div className="card">
           {group.members?.map(member => (
             <div key={member.id} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 0', borderBottom: '1px solid var(--border)' }}>
-              <div className="avatar" style={{ width: 42, height: 42, borderRadius: 10, background: 'var(--gradient-silver)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#000' }}>{member.name.charAt(0).toUpperCase()}</div>
+              <div className="avatar" style={{ width: 42, height: 42, borderRadius: 10, background: 'var(--gradient-navy)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: '#fff' }}>{member.name.charAt(0).toUpperCase()}</div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 600, fontSize: 14 }}>{member.name}</div>
                 <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{member.email}</div>
               </div>
-              {member.role === 'admin' && <span style={{ padding: '3px 10px', background: 'rgba(192, 192, 192, 0.1)', color: 'var(--silver-light)', borderRadius: 6, fontSize: 11, fontWeight: 700 }}>Admin</span>}
+              {member.role === 'admin' && <span style={{ padding: '3px 10px', background: 'var(--accent-dim)', color: 'var(--text-primary)', borderRadius: 6, fontSize: 11, fontWeight: 700 }}>Admin</span>}
             </div>
           ))}
         </div>

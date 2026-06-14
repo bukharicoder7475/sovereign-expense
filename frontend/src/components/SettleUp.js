@@ -89,7 +89,7 @@ export default function SettleUp() {
                 <div className="avatar" style={{ width: 42, height: 42 }}>{s.to_name?.charAt(0).toUpperCase()}</div>
                 <div><div style={{ fontWeight: 600, fontSize: 14 }}>{s.to_name}</div></div>
               </div>
-              <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--silver-light)' }}>{formatCurrency(s.amount, curr.symbol)}</div>
+              <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)' }}>{formatCurrency(s.amount, curr.symbol)}</div>
             </div>
           ))}
         </div>

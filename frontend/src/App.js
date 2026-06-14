@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link as RouterLink } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Sidebar from './components/Sidebar';
 import MobileNav from './components/MobileNav';
@@ -44,10 +44,10 @@ function AppLayout({ children }) {
           </div>
           <div className="footer-brand">Ledgerly</div>
           <div className="footer-links">
-            <a href="/about">About</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-            <a href="/support">Support</a>
+            <RouterLink to="/about">About</RouterLink>
+            <RouterLink to="/privacy">Privacy</RouterLink>
+            <RouterLink to="/terms">Terms</RouterLink>
+            <RouterLink to="/support">Support</RouterLink>
           </div>
           <div className="footer-copyright">&copy; 2026 Sovereign Technologies, Inc.</div>
         </footer>
@@ -57,30 +57,7 @@ function AppLayout({ children }) {
   );
 }
 
-function PageLayout({ children }) {
-  return (
-    <div className="app">
-      <Sidebar />
-      <div className="main-content">
-        {children}
-        <footer className="app-footer">
-          <div className="footer-logo-container">
-            <img src="/logo.svg" alt="Ledgerly" />
-          </div>
-          <div className="footer-brand">Ledgerly</div>
-          <div className="footer-links">
-            <a href="/about">About</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-            <a href="/support">Support</a>
-          </div>
-          <div className="footer-copyright">&copy; 2026 Sovereign Technologies, Inc.</div>
-        </footer>
-      </div>
-      <MobileNav />
-    </div>
-  );
-}
+const PageLayout = AppLayout;
 
 function App() {
   const [showSplash, setShowSplash] = useState(() => !sessionStorage.getItem('splashDone'));

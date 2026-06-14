@@ -148,10 +148,10 @@ export default function AuthPage() {
     <div style={{ textAlign: 'center', marginTop: 12 }}>
       {timer.active ? (
         <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13, fontWeight: 500 }}>
-          Resend in <span style={{ color: '#C0C0C0', fontWeight: 700 }}>{timer.remaining}s</span>
+          Resend in <span style={{ color: 'var(--text-primary)', fontWeight: 700 }}>{timer.remaining}s</span>
         </span>
       ) : (
-        <a onClick={onResend} style={{ color: '#C0C0C0', fontSize: 13, cursor: 'pointer', fontWeight: 600, textDecoration: 'none' }}>Resend OTP</a>
+        <a onClick={onResend} style={{ color: 'var(--text-primary)', fontSize: 13, cursor: 'pointer', fontWeight: 600, textDecoration: 'none' }}>Resend OTP</a>
       )}
     </div>
   );
@@ -159,12 +159,12 @@ export default function AuthPage() {
   const StepIndicator = ({ current, total }) => (
     <div style={{ display: 'flex', gap: 6, justifyContent: 'center', marginBottom: 24 }}>
       {Array.from({ length: total }, (_, i) => (
-        <div key={i} style={{ height: 3, borderRadius: 2, flex: 1, background: i < current ? 'linear-gradient(90deg, #808080, #C0C0C0)' : 'rgba(255,255,255,0.06)', transition: 'all 0.4s' }} />
+        <div key={i} style={{ height: 3, borderRadius: 2, flex: 1, background: i < current ? 'linear-gradient(90deg, #1B2559, #2E3A6E)' : 'rgba(255,255,255,0.06)', transition: 'all 0.4s' }} />
       ))}
     </div>
   );
 
-  const focusStyle = { borderColor: 'rgba(192,192,192,0.3)', background: 'rgba(255,255,255,0.05)' };
+  const focusStyle = { borderColor: 'rgba(27,37,89,0.4)', background: 'rgba(27,37,89,0.08)' };
   const blurStyle = { borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' };
   const handleFocus = (e) => { Object.assign(e.target.style, focusStyle); };
   const handleBlur = (e) => { Object.assign(e.target.style, blurStyle); };
@@ -235,12 +235,12 @@ export default function AuthPage() {
             <StepIndicator current={1} total={3} />
             <div className="auth-welcome">
               <h3>Verify your email</h3>
-              <p>We sent a 6-digit code to<br/><strong style={{ color: '#C0C0C0' }}>{regEmail}</strong></p>
+              <p>We sent a 6-digit code to<br/><strong style={{ color: 'var(--text-primary)' }}>{regEmail}</strong></p>
             </div>
             {devOTP && (
-              <div style={{ marginBottom: 16, padding: '16px', background: 'rgba(192,192,192,0.08)', borderRadius: 14, border: '1px solid rgba(192,192,192,0.2)', textAlign: 'center' }}>
-                <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Your verification code</p>
-                <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: 10, color: '#C0C0C0', fontFamily: 'monospace' }}>{devOTP}</div>
+              <div style={{ marginBottom: 16, padding: '16px', background: 'rgba(27,37,89,0.1)', borderRadius: 14, border: '1px solid rgba(27,37,89,0.3)', textAlign: 'center' }}>
+                <p style={{ fontSize: 11, color: 'var(--text-muted)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Your verification code</p>
+                <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: 10, color: 'var(--text-primary)', fontFamily: 'monospace' }}>{devOTP}</div>
               </div>
             )}
             <ErrorBanner />
@@ -318,11 +318,11 @@ export default function AuthPage() {
 
         {view === 'forgot_password' && fpStep === 2 && (
           <>
-            <div className="auth-welcome"><h3>Enter verification code</h3><p>Code sent to <strong style={{ color: '#C0C0C0' }}>{fpEmail}</strong></p></div>
+            <div className="auth-welcome"><h3>Enter verification code</h3><p>Code sent to <strong style={{ color: 'var(--text-primary)' }}>{fpEmail}</strong></p></div>
             {fpDevOTP && (
-              <div style={{ marginBottom: 16, padding: '16px', background: 'rgba(192,192,192,0.08)', borderRadius: 14, border: '1px solid rgba(192,192,192,0.2)', textAlign: 'center' }}>
-                <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Your verification code</p>
-                <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: 10, color: '#C0C0C0', fontFamily: 'monospace' }}>{fpDevOTP}</div>
+              <div style={{ marginBottom: 16, padding: '16px', background: 'rgba(27,37,89,0.1)', borderRadius: 14, border: '1px solid rgba(27,37,89,0.3)', textAlign: 'center' }}>
+                <p style={{ fontSize: 11, color: 'var(--text-muted)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Your verification code</p>
+                <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: 10, color: 'var(--text-primary)', fontFamily: 'monospace' }}>{fpDevOTP}</div>
               </div>
             )}
             <ErrorBanner />

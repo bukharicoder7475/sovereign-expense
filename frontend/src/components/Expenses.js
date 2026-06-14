@@ -130,7 +130,7 @@ export default function Expenses() {
           <div className="expense-list">
             {expenses.map(expense => (
               <div className="expense-item" key={expense.id}>
-                <div className="expense-icon" style={{ background: 'rgba(192, 192, 192, 0.06)' }}>{expense.category || 'General'}</div>
+                <div className="expense-icon">{expense.category || 'General'}</div>
                 <div className="expense-details">
                   <div className="description">{expense.description}</div>
                   <div className="meta">Paid by {expense.paid_by_name}{expense.group_name && <span> · {expense.group_name}</span>} · {new Date(expense.date).toLocaleDateString()}</div>

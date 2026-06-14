@@ -33,7 +33,7 @@ export default function PurposePicker({ value, onChange }) {
         transition: 'all 0.3s', userSelect: 'none', WebkitTapHighlightColor: 'transparent',
         boxSizing: 'border-box', minHeight: 48, fontFamily: 'inherit'
       }}>
-        <span style={{ color: selected ? '#E0E0E0' : 'rgba(255,255,255,0.3)' }}>
+        <span style={{ color: selected ? 'var(--text-primary)' : 'rgba(255,255,255,0.3)' }}>
           {selected || 'Select a purpose'}
         </span>
         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.4, flexShrink: 0 }}>
@@ -55,7 +55,7 @@ export default function PurposePicker({ value, onChange }) {
             animation: 'slideUp 0.25s ease'
           }}>
             <div style={{ padding: '16px 16px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: 16, fontWeight: 600, color: '#E0E0E0' }}>Select Purpose</span>
+              <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)' }}>Select Purpose</span>
               <div onClick={() => setOpen(false)} style={{
                 width: 32, height: 32, borderRadius: '50%', background: 'rgba(255,255,255,0.06)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer'
@@ -73,22 +73,22 @@ export default function PurposePicker({ value, onChange }) {
                   style={{
                     display: 'flex', alignItems: 'center', gap: 14, padding: '14px 14px',
                     borderRadius: 12, cursor: 'pointer', transition: 'background 0.15s',
-                    background: p === value ? 'rgba(192,192,192,0.1)' : 'transparent',
-                    border: p === value ? '1px solid rgba(192,192,192,0.15)' : '1px solid transparent',
+                    background: p === value ? 'var(--accent-dim)' : 'transparent',
+                    border: p === value ? '1px solid rgba(27,37,89,0.3)' : '1px solid transparent',
                     WebkitTapHighlightColor: 'transparent', marginBottom: 2
                   }}
                   onMouseEnter={(e) => { if (p !== value) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
                   onMouseLeave={(e) => { if (p !== value) e.currentTarget.style.background = 'transparent'; }}
                 >
                   <div style={{
-                    width: 36, height: 36, borderRadius: 10, background: 'rgba(192,192,192,0.06)',
+                    width: 36, height: 36, borderRadius: 10, background: 'var(--surface-2)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
                   }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C0C0C0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d={PURPOSE_ICONS[p]} />
                     </svg>
                   </div>
-                  <span style={{ fontSize: 14, fontWeight: 500, color: '#E0E0E0' }}>{p}</span>
+                  <span style={{ fontSize: 14, fontWeight: 500, color: 'var(--text-primary)' }}>{p}</span>
                 </div>
               ))}
             </div>

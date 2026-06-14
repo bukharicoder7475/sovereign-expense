@@ -1,25 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 750" width="800" height="750">
   <!-- Icon: Dark navy rounded square -->
-  <rect x="200" y="40" width="400" height="400" rx="90" ry="90" fill="#1B2559"/>
+  <rect x="250" y="20" width="300" height="300" rx="68" ry="68" fill="#1B2559"/>
   
-  <!-- L - outer stroke -->
-  <path d="M320 130 L320 350 L530 350" fill="none" stroke="#FFFFFF" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- L - inner gap (dark navy to create double-line) -->
-  <path d="M320 130 L320 350 L530 350" fill="none" stroke="#1B2559" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- L - inner fill -->
-  <path d="M320 130 L320 350 L530 350" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- L - outer stroke (thick white) -->
+  <path d="M340 80 L340 280 L490 280" fill="none" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- L - dark gap (creates the double-line effect) -->
+  <path d="M340 80 L340 280 L490 280" fill="none" stroke="#1B2559" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- L - inner stroke (thinner white) -->
+  <path d="M340 80 L340 280 L490 280" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Ledgerly text -->
-  <text x="400" y="540" 
+  <!-- Ledgerly text - white on dark -->
+  <text x="400" y="420" 
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" 
-        font-size="100" font-weight="800" 
-        fill="#1B2559" text-anchor="middle" 
+        font-size="88" font-weight="800" 
+        fill="#FFFFFF" text-anchor="middle" 
         letter-spacing="2">Ledgerly</text>
 
-  <!-- "A PROJECT OF  SOVEREIGN" text -->
-  <text x="400" y="610" 
+  <!-- "A PROJECT OF  SOVEREIGN" text - light gray -->
+  <text x="400" y="480" 
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" 
-        font-size="18" font-weight="600" 
-        fill="#666666" text-anchor="middle" 
+        font-size="16" font-weight="500" 
+        fill="#888888" text-anchor="middle" 
         letter-spacing="8">A PROJECT OF  SOVEREIGN</text>
 </svg>

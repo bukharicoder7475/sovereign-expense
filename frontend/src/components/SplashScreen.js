@@ -14,7 +14,7 @@ export default function SplashScreen({ onComplete }) {
   return (
     <div className={`splash-screen ${exit ? 'splash-exit' : ''}`}>
       <div className="splash-logo-wrap">
-        <img src="/logo.svg" alt="Lederly" />
+        <img src="/logo.svg" alt="Ledgerly" />
       </div>
       <div className="splash-brand">LEDGERLY</div>
       <div className="splash-tagline">Smart Expense Management</div>

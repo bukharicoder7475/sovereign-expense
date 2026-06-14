@@ -21,7 +21,7 @@ router.post('/send-report', authenticate, async (req, res) => {
 
     res.set({
       'Content-Type': 'application/pdf',
-      'Content-Disposition': `attachment; filename="Lederly_${report.monthName}_${report.year}_Report.pdf"`
+      'Content-Disposition': `attachment; filename="Ledgerly_${report.monthName}_${report.year}_Report.pdf"`
     });
     res.send(pdfBuffer);
   } catch (err) {
@@ -83,12 +83,12 @@ router.post('/send-expense-summary', authenticate, async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: `"Lederly" <${process.env.SMTP_USER}>`,
+      from: `"Ledgerly" <${process.env.SMTP_USER}>`,
       to: recipientEmail,
-      subject: `${report.monthName} ${report.year} Expense Report - Lederly`,
+      subject: `${report.monthName} ${report.year} Expense Report - Ledgerly`,
       html: `<div style="font-family:sans-serif;padding:40px;background:#000;color:#e8e8e8;"><h1 style="color:#c0c0c0;letter-spacing:4px;">LEDGERLY</h1><p>Your monthly expense report is attached.</p></div>`,
       attachments: [{
-        filename: `Lederly_${report.monthName}_${report.year}_Report.pdf`,
+        filename: `Ledgerly_${report.monthName}_${report.year}_Report.pdf`,
         content: pdfBuffer,
         contentType: 'application/pdf'
       }]

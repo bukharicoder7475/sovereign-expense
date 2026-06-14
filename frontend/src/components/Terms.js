@@ -15,14 +15,14 @@ export default function Terms() {
       <div className="card" style={{ marginBottom: 20 }}>
         <h3 style={{ color: 'var(--silver-light)', marginBottom: 14, fontSize: 16 }}>1. Acceptance of Terms</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          By accessing or using Lederly, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the service. These terms apply to all users of the service, including browsers, contributors, and users of content or features.
+          By accessing or using Ledgerly, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the service. These terms apply to all users of the service, including browsers, contributors, and users of content or features.
         </p>
       </div>
 
       <div className="card" style={{ marginBottom: 20 }}>
         <h3 style={{ color: 'var(--silver-light)', marginBottom: 14, fontSize: 16 }}>2. Description of Service</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          Lederly is a platform for managing shared expenses. It allows users to create groups, track expenses, split costs, calculate balances, communicate through group chat, and generate financial reports. The service is provided as-is and may be updated, modified, or improved over time at our discretion.
+          Ledgerly is a platform for managing shared expenses. It allows users to create groups, track expenses, split costs, calculate balances, communicate through group chat, and generate financial reports. The service is provided as-is and may be updated, modified, or improved over time at our discretion.
         </p>
       </div>
 
@@ -43,21 +43,21 @@ export default function Terms() {
       <div className="card" style={{ marginBottom: 20 }}>
         <h3 style={{ color: 'var(--silver-light)', marginBottom: 14, fontSize: 16 }}>4. Financial Responsibility</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          Lederly tracks and calculates expense splits for informational purposes. The application does not process payments or move money between users. All actual financial transactions and settlements between users are conducted outside of the platform. Lederly is not responsible for any disputes arising from shared expenses or settlements between users. You and your group members are solely responsible for resolving any disagreements about expenses.
+          Ledgerly tracks and calculates expense splits for informational purposes. The application does not process payments or move money between users. All actual financial transactions and settlements between users are conducted outside of the platform. Ledgerly is not responsible for any disputes arising from shared expenses or settlements between users. You and your group members are solely responsible for resolving any disagreements about expenses.
         </p>
       </div>
 
       <div className="card" style={{ marginBottom: 20 }}>
         <h3 style={{ color: 'var(--silver-light)', marginBottom: 14, fontSize: 16 }}>5. Intellectual Property</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          The service and its original content, features, and functionality are owned by Lederly and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws. You may not copy, modify, distribute, sell, or lease any part of our service or included software without our express written permission.
+          The service and its original content, features, and functionality are owned by Ledgerly and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws. You may not copy, modify, distribute, sell, or lease any part of our service or included software without our express written permission.
         </p>
       </div>
 
       <div className="card" style={{ marginBottom: 20 }}>
         <h3 style={{ color: 'var(--silver-light)', marginBottom: 14, fontSize: 16 }}>6. Limitation of Liability</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 14 }}>
-          To the maximum extent permitted by applicable law, Lederly shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your use of the service. The service is provided without warranties of any kind, either express or implied.
+          To the maximum extent permitted by applicable law, Ledgerly shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your use of the service. The service is provided without warranties of any kind, either express or implied.
         </p>
       </div>
 

@@ -1,6 +1,10 @@
 const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:5000/api'
-  : `${window.location.protocol}//${window.location.host}/api`;
+  : process.env.REACT_APP_API_URL || `${window.location.protocol}//${window.location.host}/api`;
+
+const WS_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:5000'
+  : process.env.REACT_APP_WS_URL || window.location.origin;
 
 class ApiClient {
   constructor() {
@@ -81,3 +85,4 @@ class ApiClient {
 
 const api = new ApiClient();
 export default api;
+export { API_URL, WS_URL };

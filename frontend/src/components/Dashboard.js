@@ -104,7 +104,7 @@ export default function Dashboard() {
         <div className="welcome-overlay" onClick={() => setShowWelcome(false)}>
           <div className="welcome-card" onClick={e => e.stopPropagation()}>
             <div style={{ textAlign: 'center', marginBottom: 32 }}>
-              <img src="/logo.svg" alt="Lederly" style={{ width: 64, height: 64, marginBottom: 16 }} />
+              <img src="/logo.svg" alt="Ledgerly" style={{ width: 64, height: 64, marginBottom: 16 }} />
               <h2 style={{ fontSize: 24, fontWeight: 800, letterSpacing: 2, marginBottom: 8 }}>WELCOME TO LEDGERLY</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6 }}>Your premium expense management platform.<br/>Start by creating a group or adding your first expense.</p>
             </div>
@@ -121,8 +121,8 @@ export default function Dashboard() {
 
       <div className="dashboard-header">
         <div className="dashboard-header-top">
-          <img src="/logo.svg" alt="Lederly" className="dashboard-logo" />
-          <div className="dashboard-brand">Lederly</div>
+          <img src="/logo.svg" alt="Ledgerly" className="dashboard-logo" />
+
         </div>
         <div className="dashboard-greeting">
           <h2>{getGreeting()}, <span className="dashboard-user-name">{user?.name}</span></h2>

@@ -40,9 +40,9 @@ function AppLayout({ children }) {
         {children}
         <footer className="app-footer">
           <div className="footer-logo-container">
-            <img src="/logo.svg" alt="Lederly" />
+            <img src="/logo.svg" alt="Ledgerly" />
           </div>
-          <div className="footer-brand">Lederly</div>
+          <div className="footer-brand">Ledgerly</div>
           <div className="footer-links">
             <a href="/about">About</a>
             <a href="/privacy">Privacy</a>
@@ -65,9 +65,9 @@ function PageLayout({ children }) {
         {children}
         <footer className="app-footer">
           <div className="footer-logo-container">
-            <img src="/logo.svg" alt="Lederly" />
+            <img src="/logo.svg" alt="Ledgerly" />
           </div>
-          <div className="footer-brand">Lederly</div>
+          <div className="footer-brand">Ledgerly</div>
           <div className="footer-links">
             <a href="/about">About</a>
             <a href="/privacy">Privacy</a>

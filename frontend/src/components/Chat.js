@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { io } from 'socket.io-client';
-import api from '../utils/api';
+import api, { WS_URL } from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 
 let socket = null;
@@ -27,9 +27,7 @@ export default function Chat() {
   const selectGroup = async (groupId) => {
     setSelectedGroup(groupId);
     if (socket) socket.disconnect();
-    socket = io(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      ? 'http://localhost:5000'
-      : window.location.origin, { transports: ['websocket'] });
+    socket = io(WS_URL, { transports: ['websocket'] });
     socket.emit('join_group', groupId);
     socket.on('new_message', (message) => setMessages(prev => [...prev, message]));
     socket.on('user_typing', (data) => { setTypingUser(data.username); setTyping(true); });

@@ -10,17 +10,18 @@ const router = express.Router();
 let emailTransporter = null;
 function getEmailTransporter() {
   if (emailTransporter) return emailTransporter;
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env;
-  if (SMTP_HOST && SMTP_USER && SMTP_PASS) {
+  const { SMTP_USER, SMTP_PASS } = process.env;
+  if (SMTP_USER && SMTP_PASS) {
     emailTransporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: parseInt(SMTP_PORT) || 587,
-      secure: parseInt(SMTP_PORT) === 465,
+      service: 'gmail',
       auth: { user: SMTP_USER, pass: SMTP_PASS },
-      connectionTimeout: 10000,
+      connectionTimeout: 15000,
       greetingTimeout: 10000,
-      socketTimeout: 15000
+      socketTimeout: 20000
     });
+    console.log('[SMTP] Gmail transporter ready');
+  } else {
+    console.log('[SMTP] No credentials — OTP will show on screen only');
   }
   return emailTransporter;
 }
@@ -35,9 +36,9 @@ async function sendEmailOTP(email, code) {
   }
   try {
     await transporter.sendMail({
-      from: `"Lederly" <${process.env.SMTP_USER || 'noreply@ledgerly.app'}>`,
+      from: `"Ledgerly" <${process.env.SMTP_USER || 'noreply@ledgerly.app'}>`,
       to: email,
-      subject: 'Your Lederly Verification Code',
+      subject: 'Your Ledgerly Verification Code',
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 400px; margin: 0 auto; background: #000; color: #e8e8e8; padding: 40px; border-radius: 16px;">
           <div style="text-align: center; margin-bottom: 30px;">

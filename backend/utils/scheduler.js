@@ -6,16 +6,14 @@ const { generateMonthlyReport, createPDF } = require('./reportGenerator');
 let transporter = null;
 
 function initEmailService() {
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env;
+  const { SMTP_USER, SMTP_PASS } = process.env;
 
-  if (SMTP_HOST && SMTP_USER && SMTP_PASS) {
+  if (SMTP_USER && SMTP_PASS) {
     transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: parseInt(SMTP_PORT) || 587,
-      secure: parseInt(SMTP_PORT) === 465,
+      service: 'gmail',
       auth: { user: SMTP_USER, pass: SMTP_PASS }
     });
-    console.log('[Email] SMTP configured');
+    console.log('[Email] Gmail service ready');
   } else {
     console.log('[Email] SMTP not configured - emails will be logged only');
   }
@@ -40,9 +38,9 @@ async function sendMonthlyReports() {
       const year = new Date().getFullYear();
 
       const mailOptions = {
-        from: `"Lederly" <${process.env.SMTP_USER || 'noreply@ledgerly.app'}>`,
+        from: `"Ledgerly" <${process.env.SMTP_USER || 'noreply@ledgerly.app'}>`,
         to: user.email,
-        subject: `Your ${monthName} ${year} Expense Report - Lederly`,
+        subject: `Your ${monthName} ${year} Expense Report - Ledgerly`,
         html: `
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #000; color: #e8e8e8; padding: 40px;">
             <div style="text-align: center; margin-bottom: 30px;">
@@ -69,12 +67,12 @@ async function sendMonthlyReports() {
             </div>
             <p style="font-size: 12px; color: #888; text-align: center;">Your detailed expense report is attached as a PDF.</p>
             <div style="border-top: 1px solid #222; padding-top: 20px; margin-top: 20px; text-align: center;">
-              <p style="font-size: 10px; color: #555;">Lederly - Premium Expense Management</p>
+              <p style="font-size: 10px; color: #555;">Ledgerly - Premium Expense Management</p>
             </div>
           </div>
         `,
         attachments: [{
-          filename: `Lederly_${monthName}_${year}_Report.pdf`,
+          filename: `Ledgerly_${monthName}_${year}_Report.pdf`,
           content: pdfBuffer,
           contentType: 'application/pdf'
         }]

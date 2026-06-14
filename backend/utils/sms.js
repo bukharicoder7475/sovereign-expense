@@ -31,7 +31,7 @@ async function sendSMS(to, body) {
 }
 
 async function sendOTP(phone, code) {
-  const message = `Your Lederly verification code is: ${code}. It expires in 10 minutes. Do not share this code with anyone.`;
+  const message = `Your Ledgerly verification code is: ${code}. It expires in 10 minutes. Do not share this code with anyone.`;
   return sendSMS(phone, message);
 }
 

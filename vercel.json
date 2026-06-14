@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "ledgerly",
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/build",
+  "installCommand": "cd frontend && npm install",
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://ledgerly-api.up.railway.app/api/:path*" },
+    { "source": "/socket.io/:path*", "destination": "https://ledgerly-api.up.railway.app/socket.io/:path*" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}

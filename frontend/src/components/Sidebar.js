@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 
@@ -22,10 +22,10 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      <div className="sidebar-logo">
-        <img src="/logo.svg" alt="Lederly" className="logo-img" />
-        <h1>Lederly</h1>
-      </div>
+      <Link to="/" className="sidebar-logo" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: 10, padding: '0 0 24px' }}>
+        <img src="/logo.svg" alt="Ledgerly" className="logo-img" />
+        <h1>Ledgerly</h1>
+      </Link>
 
       <nav className="sidebar-nav">
         <NavLink to="/" end>

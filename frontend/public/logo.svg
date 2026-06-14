@@ -1,29 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <!-- Background rounded square -->
-  <rect x="0" y="0" width="512" height="512" rx="110" ry="110" fill="#1B2559"/>
-  
-  <!-- Outer L shape - thicker stroke -->
-  <path d="M155 120 L155 392 L357 392" 
-        fill="none" 
-        stroke="#FFFFFF" 
-        stroke-width="48" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"/>
-  
-  <!-- Inner L shape - creates the double-line effect -->
-  <path d="M155 120 L155 392 L357 392" 
-        fill="none" 
-        stroke="#1B2559" 
-        stroke-width="24" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
-        opacity="0.35"/>
-  
-  <!-- Inner L fill -->
-  <path d="M155 120 L155 392 L357 392" 
-        fill="none" 
-        stroke="#FFFFFF" 
-        stroke-width="20" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"/>
+  <rect width="512" height="512" rx="110" ry="110" fill="#1B2559"/>
+  <path d="M155 90 L155 392 L357 392" fill="none" stroke="#FFFFFF" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M155 90 L155 392 L357 392" fill="none" stroke="#1B2559" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M155 90 L155 392 L357 392" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

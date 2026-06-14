@@ -1,32 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 620" width="512" height="620">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <!-- Icon: Dark navy rounded square -->
-  <rect x="156" y="0" width="200" height="200" rx="44" ry="44" fill="#1B2559"/>
+  <rect x="200" y="40" width="400" height="400" rx="90" ry="90" fill="#1B2559"/>
   
-  <!-- Outer L -->
-  <path d="M215 42 L215 158 L300 158" 
-        fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- Inner L -->
-  <path d="M215 42 L215 158 L300 158" 
-        fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- L - outer stroke -->
+  <path d="M320 130 L320 350 L530 350" fill="none" stroke="#FFFFFF" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- L - inner gap (dark navy to create double-line) -->
+  <path d="M320 130 L320 350 L530 350" fill="none" stroke="#1B2559" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- L - inner fill -->
+  <path d="M320 130 L320 350 L530 350" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
 
   <!-- Ledgerly text -->
-  <text x="256" y="290" 
-        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-        font-size="64" font-weight="800" 
-        fill="#E0E4F0" text-anchor="middle" 
-        letter-spacing="4">Ledgerly</text>
+  <text x="400" y="540" 
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" 
+        font-size="100" font-weight="800" 
+        fill="#1B2559" text-anchor="middle" 
+        letter-spacing="2">Ledgerly</text>
 
-  <!-- A PROJECT OF S SOVEREIGN - centered line -->
-  <text x="256" y="340" 
-        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-        font-size="13" font-weight="600" 
-        fill="#555555" text-anchor="middle" 
-        letter-spacing="5">A PROJECT OF  SOVEREIGN</text>
-
-  <!-- Sovereign S icon in the middle of text -->
-  <g transform="translate(240, 318) scale(0.9)">
-    <path d="M12 2 C8 2, 5 5, 5 8 C5 11, 8 13, 12 13 C16 13, 19 16, 19 19 C19 22, 16 24, 12 24" 
-          fill="none" stroke="#6B5CE7" stroke-width="3" stroke-linecap="round"/>
-  </g>
+  <!-- "A PROJECT OF  SOVEREIGN" text -->
+  <text x="400" y="610" 
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" 
+        font-size="18" font-weight="600" 
+        fill="#666666" text-anchor="middle" 
+        letter-spacing="8">A PROJECT OF  SOVEREIGN</text>
 </svg>

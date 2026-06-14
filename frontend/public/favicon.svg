@@ -1,20 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
-  <!-- Background rounded square -->
-  <rect x="0" y="0" width="192" height="192" rx="42" ry="42" fill="#1B2559"/>
-  
-  <!-- Outer L -->
-  <path d="M58 45 L58 148 L134 148" 
-        fill="none" 
-        stroke="#FFFFFF" 
-        stroke-width="18" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"/>
-  
-  <!-- Inner L -->
-  <path d="M58 45 L58 148 L134 148" 
-        fill="none" 
-        stroke="#FFFFFF" 
-        stroke-width="7" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"/>
+  <rect width="192" height="192" rx="42" ry="42" fill="#1B2559"/>
+  <path d="M58 34 L58 148 L134 148" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M58 34 L58 148 L134 148" fill="none" stroke="#1B2559" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M58 34 L58 148 L134 148" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

@@ -33,7 +33,7 @@ export default function PurposePicker({ value, onChange }) {
         transition: 'all 0.3s', userSelect: 'none', WebkitTapHighlightColor: 'transparent',
         boxSizing: 'border-box', minHeight: 48, fontFamily: 'inherit'
       }}>
-        <span style={{ color: selected ? 'var(--text-primary)' : 'rgba(255,255,255,0.3)' }}>
+        <span style={{ color: selected ? 'var(--text-primary)' : 'var(--text-secondary)' }}>
           {selected || 'Select a purpose'}
         </span>
         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ opacity: 0.4, flexShrink: 0 }}>

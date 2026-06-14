@@ -98,13 +98,13 @@ export default function CountryPicker({ value, onChange }) {
                   <span style={{ fontSize: 20, width: 28, textAlign: 'center' }}>{c.flag}</span>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--text-primary)' }}>{c.name}</div>
-                    <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', marginTop: 1 }}>{c.currency} ({c.symbol})</div>
+                    <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 1 }}>{c.currency} ({c.symbol})</div>
                   </div>
                   <span style={{ fontSize: 14, fontWeight: 600, color: 'rgba(255,255,255,0.4)', fontVariantNumeric: 'tabular-nums' }}>{c.code}</span>
                 </div>
               ))}
               {filtered.length === 0 && (
-                <div style={{ textAlign: 'center', padding: '32px 0', color: 'rgba(255,255,255,0.3)', fontSize: 13 }}>
+                <div style={{ textAlign: 'center', padding: '32px 0', color: 'var(--text-secondary)', fontSize: 13 }}>
                   No countries found
                 </div>
               )}

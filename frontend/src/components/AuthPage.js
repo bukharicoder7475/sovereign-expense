@@ -131,8 +131,8 @@ export default function AuthPage() {
     regTimer.reset(); setError('');
   };
 
-  const inputStyle = { width: '100%', padding: '14px 16px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, color: '#fff', fontSize: 15, fontFamily: 'inherit', boxSizing: 'border-box', transition: 'all 0.3s', outline: 'none', letterSpacing: '0.2px' };
-  const labelStyle = { fontSize: 12, fontWeight: 600, marginBottom: 8, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block' };
+  const inputStyle = { width: '100%', padding: '14px 16px', background: 'var(--bg-input)', border: '1px solid var(--border)', borderRadius: 14, color: 'var(--text-primary)', fontSize: 15, fontFamily: 'inherit', boxSizing: 'border-box', transition: 'all 0.3s', outline: 'none', letterSpacing: '0.2px' };
+  const labelStyle = { fontSize: 12, fontWeight: 600, marginBottom: 8, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block' };
 
   const ErrorBanner = () => error ? (
     <div style={{ color: '#ff6b6b', marginBottom: 16, fontSize: 13, padding: '12px 16px', background: 'rgba(255, 107, 107, 0.06)', borderRadius: 12, border: '1px solid rgba(255, 107, 107, 0.1)', fontWeight: 500 }}>{error}</div>
@@ -147,7 +147,7 @@ export default function AuthPage() {
   const ResendButton = ({ onResend, timer }) => (
     <div style={{ textAlign: 'center', marginTop: 12 }}>
       {timer.active ? (
-        <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13, fontWeight: 500 }}>
+        <span style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 500 }}>
           Resend in <span style={{ color: 'var(--text-primary)', fontWeight: 700 }}>{timer.remaining}s</span>
         </span>
       ) : (
@@ -164,7 +164,7 @@ export default function AuthPage() {
     </div>
   );
 
-  const focusStyle = { borderColor: 'rgba(27,37,89,0.4)', background: 'rgba(27,37,89,0.08)' };
+  const focusStyle = { borderColor: 'var(--accent-light)', background: 'var(--bg-input-focus)' };
   const blurStyle = { borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' };
   const handleFocus = (e) => { Object.assign(e.target.style, focusStyle); };
   const handleBlur = (e) => { Object.assign(e.target.style, blurStyle); };
@@ -238,7 +238,7 @@ export default function AuthPage() {
               <p>We sent a 6-digit code to<br/><strong style={{ color: 'var(--text-primary)' }}>{regEmail}</strong></p>
             </div>
             {devOTP && (
-              <div style={{ marginBottom: 16, padding: '16px', background: 'rgba(27,37,89,0.1)', borderRadius: 14, border: '1px solid rgba(27,37,89,0.3)', textAlign: 'center' }}>
+              <div style={{ marginBottom: 16, padding: '16px', background: 'var(--bg-card)', borderRadius: 14, border: '1px solid var(--border)', textAlign: 'center' }}>
                 <p style={{ fontSize: 11, color: 'var(--text-muted)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Your verification code</p>
                 <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: 10, color: 'var(--text-primary)', fontFamily: 'monospace' }}>{devOTP}</div>
               </div>
@@ -277,12 +277,12 @@ export default function AuthPage() {
                 <input type="password" value={regPassword} onChange={(e) => setRegPassword(e.target.value)} placeholder="Min. 6 characters" required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
               </div>
               <div className="input-group">
-                <label style={labelStyle}>Phone Number <span style={{ fontWeight: 400, color: 'rgba(255,255,255,0.2)', textTransform: 'none', letterSpacing: 0 }}>(optional, sets your currency)</span></label>
+                <label style={labelStyle}>Phone Number <span style={{ fontWeight: 400, color: 'var(--text-muted)', textTransform: 'none', letterSpacing: 0 }}>(optional, sets your currency)</span></label>
                 <div style={{ display: 'flex', gap: 10 }}>
                   <CountryPicker value={regCountryCode} onChange={setRegCountryCode} />
                   <input type="tel" value={regPhone} onChange={(e) => setRegPhone(e.target.value)} placeholder="5X XXX XXXX" style={{ ...inputStyle, flex: 1 }} />
                 </div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', marginTop: 8, display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', background: 'rgba(255,255,255,0.02)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.04)' }}>
+                <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 8, display: 'flex', alignItems: 'center', gap: 6, padding: '8px 12px', background: 'var(--bg-input)', borderRadius: 10, border: '1px solid var(--border)' }}>
                   <span style={{ fontSize: 14 }}>{selectedCountry.flag}</span>
                   <span>Country: {selectedCountry.name} &middot; Currency: {selectedCountry.currency} ({selectedCountry.symbol})</span>
                 </div>
@@ -320,7 +320,7 @@ export default function AuthPage() {
           <>
             <div className="auth-welcome"><h3>Enter verification code</h3><p>Code sent to <strong style={{ color: 'var(--text-primary)' }}>{fpEmail}</strong></p></div>
             {fpDevOTP && (
-              <div style={{ marginBottom: 16, padding: '16px', background: 'rgba(27,37,89,0.1)', borderRadius: 14, border: '1px solid rgba(27,37,89,0.3)', textAlign: 'center' }}>
+              <div style={{ marginBottom: 16, padding: '16px', background: 'var(--bg-card)', borderRadius: 14, border: '1px solid var(--border)', textAlign: 'center' }}>
                 <p style={{ fontSize: 11, color: 'var(--text-muted)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Your verification code</p>
                 <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: 10, color: 'var(--text-primary)', fontFamily: 'monospace' }}>{fpDevOTP}</div>
               </div>

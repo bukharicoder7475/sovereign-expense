@@ -1,19 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="s" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#C0C0C0"/>
-      <stop offset="50%" style="stop-color:#E0E0E0"/>
-      <stop offset="100%" style="stop-color:#909090"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B2559"/>
+      <stop offset="100%" style="stop-color:#0F1740"/>
     </linearGradient>
   </defs>
-  <rect x="14" y="46" width="36" height="4" rx="1" fill="url(#s)"/>
-  <rect x="16" y="52" width="32" height="3" rx="1" fill="url(#s)"/>
-  <path d="M16 46 L16 28 L26 36 L32 22 L38 36 L48 28 L48 46 Z" fill="none" stroke="url(#s)" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="16" cy="27" r="3.5" fill="url(#s)"/>
-  <circle cx="32" cy="20" r="3.5" fill="url(#s)"/>
-  <circle cx="48" cy="27" r="3.5" fill="url(#s)"/>
-  <rect x="22" y="37" width="4" height="8" rx="0.5" fill="url(#s)"/>
-  <rect x="28" y="33" width="4" height="12" rx="0.5" fill="url(#s)"/>
-  <rect x="34" y="30" width="4" height="15" rx="0.5" fill="url(#s)"/>
-  <text x="42" y="40" font-family="Arial" font-size="10" font-weight="bold" fill="url(#s)" text-anchor="middle">$</text>
+  <rect x="4" y="4" width="56" height="56" rx="14" ry="14" fill="url(#bg)"/>
+  <path d="M22 20 L22 44 L42 44" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

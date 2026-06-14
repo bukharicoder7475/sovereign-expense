@@ -23,8 +23,8 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
-        <img src="/logo.svg" alt="Sovereign" className="logo-img" />
-        <h1>Sovereign</h1>
+        <img src="/logo.svg" alt="Lederly" className="logo-img" />
+        <h1>Lederly</h1>
       </div>
 
       <nav className="sidebar-nav">

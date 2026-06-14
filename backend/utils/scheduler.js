@@ -40,13 +40,13 @@ async function sendMonthlyReports() {
       const year = new Date().getFullYear();
 
       const mailOptions = {
-        from: `"Sovereign" <${process.env.SMTP_USER || 'noreply@sovereign.app'}>`,
+        from: `"Lederly" <${process.env.SMTP_USER || 'noreply@ledgerly.app'}>`,
         to: user.email,
-        subject: `Your ${monthName} ${year} Expense Report - Sovereign`,
+        subject: `Your ${monthName} ${year} Expense Report - Lederly`,
         html: `
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #000; color: #e8e8e8; padding: 40px;">
             <div style="text-align: center; margin-bottom: 30px;">
-              <h1 style="font-size: 24px; letter-spacing: 4px; color: #c0c0c0; margin: 0;">SOVEREIGN</h1>
+              <h1 style="font-size: 24px; letter-spacing: 4px; color: #c0c0c0; margin: 0;">LEDGERLY</h1>
               <p style="font-size: 12px; color: #888; margin-top: 4px;">Monthly Expense Report</p>
             </div>
             <div style="background: #111; border-radius: 12px; padding: 24px; margin-bottom: 20px;">
@@ -69,12 +69,12 @@ async function sendMonthlyReports() {
             </div>
             <p style="font-size: 12px; color: #888; text-align: center;">Your detailed expense report is attached as a PDF.</p>
             <div style="border-top: 1px solid #222; padding-top: 20px; margin-top: 20px; text-align: center;">
-              <p style="font-size: 10px; color: #555;">Sovereign - Premium Expense Management</p>
+              <p style="font-size: 10px; color: #555;">Lederly - Premium Expense Management</p>
             </div>
           </div>
         `,
         attachments: [{
-          filename: `Sovereign_${monthName}_${year}_Report.pdf`,
+          filename: `Lederly_${monthName}_${year}_Report.pdf`,
           content: pdfBuffer,
           contentType: 'application/pdf'
         }]

@@ -141,9 +141,9 @@ export default function AuthPage() {
   const LogoHeader = () => (
     <div className="auth-logo-header">
       <div className="auth-logo-ring">
-        <img src="/logo.svg" alt="Sovereign" className="auth-logo" />
+        <img src="/logo.svg" alt="Lederly" className="auth-logo" />
       </div>
-      <h2 className="auth-brand">Sovereign</h2>
+      <h2 className="auth-brand">Lederly</h2>
       <p className="auth-tagline">Premium Expense Management</p>
     </div>
   );
@@ -355,7 +355,7 @@ export default function AuthPage() {
           </>
         )}
 
-        <div className="auth-footer-text"><p>&copy; 2026 Sovereign, Inc.</p></div>
+        <div className="auth-footer-text"><p>&copy; 2026 Sovereign Technologies, Inc.</p></div>
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Sidebar from './components/Sidebar';
 import MobileNav from './components/MobileNav';
+import SplashScreen from './components/SplashScreen';
 import AuthPage from './components/AuthPage';
 import Dashboard from './components/Dashboard';
 import Groups from './components/Groups';
@@ -39,16 +40,16 @@ function AppLayout({ children }) {
         {children}
         <footer className="app-footer">
           <div className="footer-logo-container">
-            <img src="/logo.svg" alt="Sovereign" />
+            <img src="/logo.svg" alt="Lederly" />
           </div>
-          <div className="footer-brand">Sovereign</div>
+          <div className="footer-brand">Lederly</div>
           <div className="footer-links">
             <a href="/about">About</a>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
             <a href="/support">Support</a>
           </div>
-          <div className="footer-copyright">© 2026 Sovereign, Inc. All rights reserved.</div>
+          <div className="footer-copyright">&copy; 2026 Sovereign Technologies, Inc.</div>
         </footer>
       </div>
       <MobileNav />
@@ -64,16 +65,16 @@ function PageLayout({ children }) {
         {children}
         <footer className="app-footer">
           <div className="footer-logo-container">
-            <img src="/logo.svg" alt="Sovereign" />
+            <img src="/logo.svg" alt="Lederly" />
           </div>
-          <div className="footer-brand">Sovereign</div>
+          <div className="footer-brand">Lederly</div>
           <div className="footer-links">
             <a href="/about">About</a>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
             <a href="/support">Support</a>
           </div>
-          <div className="footer-copyright">© 2026 Sovereign, Inc. All rights reserved.</div>
+          <div className="footer-copyright">&copy; 2026 Sovereign Technologies, Inc.</div>
         </footer>
       </div>
       <MobileNav />
@@ -82,8 +83,15 @@ function PageLayout({ children }) {
 }
 
 function App() {
+  const [showSplash, setShowSplash] = useState(() => !sessionStorage.getItem('splashDone'));
+  const handleSplashComplete = useCallback(() => {
+    sessionStorage.setItem('splashDone', '1');
+    setShowSplash(false);
+  }, []);
+
   return (
     <AuthProvider>
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       <Router>
         <Routes>
           <Route path="/login" element={<PublicRoute><AuthPage /></PublicRoute>} />

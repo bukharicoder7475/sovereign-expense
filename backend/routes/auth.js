@@ -35,13 +35,13 @@ async function sendEmailOTP(email, code) {
   }
   try {
     await transporter.sendMail({
-      from: `"Sovereign" <${process.env.SMTP_USER || 'noreply@sovereign.app'}>`,
+      from: `"Lederly" <${process.env.SMTP_USER || 'noreply@ledgerly.app'}>`,
       to: email,
-      subject: 'Your Sovereign Verification Code',
+      subject: 'Your Lederly Verification Code',
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 400px; margin: 0 auto; background: #000; color: #e8e8e8; padding: 40px; border-radius: 16px;">
           <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="font-size: 22px; letter-spacing: 6px; color: #c0c0c0; margin: 0;">SOVEREIGN</h1>
+            <h1 style="font-size: 22px; letter-spacing: 6px; color: #c0c0c0; margin: 0;">LEDGERLY</h1>
             <p style="font-size: 11px; color: #555; margin-top: 6px; letter-spacing: 2px;">VERIFICATION CODE</p>
           </div>
           <div style="background: #111; border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 20px;">

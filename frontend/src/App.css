@@ -825,16 +825,16 @@ body {
 }
 
 .auth-logo-ring {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(27,37,89,0.2) 0%, rgba(27,37,89,0.06) 100%);
-  border: 1px solid rgba(27,37,89,0.2);
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  animation: logoPulse 4s ease-in-out infinite;
+  animation: none;
 }
 
 @keyframes logoPulse {
@@ -843,8 +843,8 @@ body {
 }
 
 .auth-logo {
-  width: 44px;
-  height: 44px;
+  width: 200px;
+  height: auto;
   filter: drop-shadow(0 0 12px rgba(27, 37, 89, 0.3));
 }
 
@@ -2295,9 +2295,9 @@ body {
 }
 
 .splash-logo-wrap img {
-  width: 80px;
-  height: 80px;
-  filter: drop-shadow(0 0 30px rgba(27, 37, 89, 0.4));
+  width: 220px;
+  height: auto;
+  filter: drop-shadow(0 0 40px rgba(27, 37, 89, 0.5));
 }
 
 .splash-logo-wrap {

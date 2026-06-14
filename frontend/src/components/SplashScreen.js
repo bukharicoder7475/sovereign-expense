@@ -7,7 +7,7 @@ export default function SplashScreen({ onComplete }) {
     const timer = setTimeout(() => {
       setExit(true);
       setTimeout(onComplete, 500);
-    }, 3000);
+    }, 2800);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -15,14 +15,6 @@ export default function SplashScreen({ onComplete }) {
     <div className={`splash-screen ${exit ? 'splash-exit' : ''}`}>
       <div className="splash-logo-wrap">
         <img src="/logo-full.svg" alt="Ledgerly" />
-      </div>
-      <div className="splash-brand" style={{ display: 'none' }}>LEDGERLY</div>
-      <div className="splash-tagline">Smart Expense Management</div>
-      <div className="splash-line"></div>
-      <div className="splash-dots">
-        <div className="splash-dot"></div>
-        <div className="splash-dot"></div>
-        <div className="splash-dot"></div>
       </div>
     </div>
   );

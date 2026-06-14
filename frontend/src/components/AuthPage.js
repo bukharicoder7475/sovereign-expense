@@ -140,11 +140,7 @@ export default function AuthPage() {
 
   const LogoHeader = () => (
     <div className="auth-logo-header">
-      <div className="auth-logo-ring">
-        <img src="/logo-full.svg" alt="Ledgerly" className="auth-logo" />
-      </div>
-      <h2 className="auth-brand">Ledgerly</h2>
-      <p className="auth-tagline">Premium Expense Management</p>
+      <img src="/logo-full.svg" alt="Ledgerly" className="auth-logo" />
     </div>
   );
 

@@ -1,16 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1B2559;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0F1740;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <!-- Rounded square background -->
-  <rect x="20" y="20" width="160" height="160" rx="40" ry="40" fill="url(#bgGrad)"/>
-  <!-- Outer L stroke -->
-  <path d="M70 65 L70 135 L130 135" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Inner L stroke -->
-  <path d="M70 65 L70 135 L130 135" fill="none" stroke="#1B2559" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
-  <!-- L letter fill -->
-  <path d="M70 65 L70 135 L130 135" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background rounded square -->
+  <rect x="0" y="0" width="512" height="512" rx="110" ry="110" fill="#1B2559"/>
+  
+  <!-- Outer L shape - thicker stroke -->
+  <path d="M155 120 L155 392 L357 392" 
+        fill="none" 
+        stroke="#FFFFFF" 
+        stroke-width="48" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Inner L shape - creates the double-line effect -->
+  <path d="M155 120 L155 392 L357 392" 
+        fill="none" 
+        stroke="#1B2559" 
+        stroke-width="24" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.35"/>
+  
+  <!-- Inner L fill -->
+  <path d="M155 120 L155 392 L357 392" 
+        fill="none" 
+        stroke="#FFFFFF" 
+        stroke-width="20" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
 </svg>
